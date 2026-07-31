@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Mohit Soni</title>
+<link rel="icon" type="image/png" href="19b00051ca777926facc0e0280e98070.jpg">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<section class="section-pad pt-32">
+  <div class="container-wide">
+    <div class="text-center mb-14 reveal">
+      <p class="eyebrow mb-3">Get In Touch</p>
+      <h1 class="text-4xl md:text-5xl font-bold">Let's Build Something Great</h1>
+      <p class="max-w-xl mx-auto text-sm mt-4" style="color:var(--text-muted);">Have a project that needs MEP engineering or BIM coordination? Send a message and I'll get back to you soon.</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-10">
+      <div class="md:col-span-2 reveal">
+        <div class="card p-8 mb-6">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(212,169,74,0.14);"><i class="fa-solid fa-envelope text-accent"></i></div>
+            <div>
+              <p class="text-xs uppercase" style="color:var(--text-muted);">Email</p>
+              <p id="contact-email" class="font-medium">--</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(212,169,74,0.14);"><i class="fa-solid fa-phone text-accent"></i></div>
+            <div>
+              <p class="text-xs uppercase" style="color:var(--text-muted);">Phone</p>
+              <p id="contact-phone" class="font-medium">--</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(212,169,74,0.14);"><i class="fa-solid fa-location-dot text-accent"></i></div>
+            <div>
+              <p class="text-xs uppercase" style="color:var(--text-muted);">Location</p>
+              <p id="contact-location" class="font-medium">--</p>
+            </div>
+          </div>
+        </div>
+<div id="contact-socials" class="flex gap-3">
+
+  <a href="https://www.linkedin.com/in/mohit-s-2422702a5"
+     target="_blank"
+     class="icon-btn"
+     title="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <a href="https://github.com/Mohitsoni1212"
+     target="_blank"
+     class="icon-btn"
+     title="GitHub">
+      <i class="fa-brands fa-github"></i>
+  </a>
+
+</div>
+      </div>
+
+      <div class="md:col-span-3 reveal">
+        <form id="contact-form" class="card p-8 grid gap-5">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="form-label">Your Name</label>
+              <input required name="name" type="text" class="form-input" placeholder="John Doe">
+            </div>
+            <div>
+              <label class="form-label">Your Email</label>
+              <input required name="email" type="email" class="form-input" placeholder="john@email.com">
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Subject</label>
+            <input required name="subject" type="text" class="form-input" placeholder="Project Inquiry">
+          </div>
+          <div>
+            <label class="form-label">Message</label>
+            <textarea required name="message" rows="5" class="form-textarea" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn-accent justify-center" id="contact-submit-btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p id="contact-success" class="text-sm text-center hidden" style="color:#4ade80;"><i class="fa-solid fa-check-circle mr-1"></i> Message sent successfully! I'll be in touch soon.</p>
+          <p id="contact-error" class="text-sm text-center hidden" style="color:#f87171;"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Something went wrong. Please try again.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="site-footer"></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+
+<script src="js/firebase-init.js"></script>
+<script src="js/api.js"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script src="js/site.js"></script>
+<script src="js/contact.js"></script>
+
+</body>
+</html>
