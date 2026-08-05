@@ -1,6 +1,4 @@
-```text
 User-agent: *
 Allow: /
 
-Sitemap: https://mohit-soni-bim-portfolio.netlify.app/sitemap.xml
-```
+Sitemap: https://mohitsonibim.netlify.app/sitemap.xml
