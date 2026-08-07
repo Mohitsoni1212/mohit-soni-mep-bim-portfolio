@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project | Mohit Soni</title>
+<link rel="icon" type="image/png" href="mohit-soni-profile.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<section class="section-pad pt-32" id="project-detail-root">
+  <div class="container-wide">
+    <a href="projects.html" class="nav-link text-sm mb-8 inline-flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a>
+
+    <div id="project-loading" class="text-center py-24">
+      <i class="fa-solid fa-circle-notch fa-spin text-3xl text-accent"></i>
+      <p class="text-sm mt-4" style="color:var(--text-muted);">Loading project...</p>
+    </div>
+
+    <div id="project-not-found" class="text-center py-24 hidden">
+      <i class="fa-solid fa-triangle-exclamation text-3xl text-accent"></i>
+      <p class="text-sm mt-4" style="color:var(--text-muted);">Project not found. It may have been removed.</p>
+      <a href="projects.html" class="btn-accent inline-block mt-6">Back to Projects</a>
+    </div>
+
+    <article id="project-content" class="hidden">
+      <div class="flex flex-wrap items-start justify-between gap-6 mb-10">
+        <div>
+          <span id="pd-category" class="category-chip mb-3 inline-block"></span>
+          <h1 id="pd-title" class="text-3xl md:text-5xl font-bold"></h1>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm" style="color:var(--text-muted);">
+          <div><p class="text-xs uppercase tracking-wide mb-1">Location</p><p id="pd-location" class="font-medium text-white">--</p></div>
+      <div>
+    <p class="text-xs uppercase tracking-wide mb-1"
+       style="color:var(--text-muted);">
+      Status
+    </p>
+    <p id="pd-status" class="font-medium">--</p>
+  </div>
+        </div>
+      </div>
+
+      <div class="card p-2 mb-10 overflow-hidden">
+        <img id="pd-cover" src="" alt="" class="w-full rounded-xl object-cover" style="max-height:560px;">
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10 mb-14">
+        <div class="md:col-span-2">
+          <h2 class="text-2xl font-bold mb-4">Overview</h2>
+          <p id="pd-description" class="text-sm leading-7" style="color:var(--text-muted);"></p>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold mb-4">Tools &amp; Software</h2>
+          <div id="pd-tools" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <!-- ASSET GALLERY -->
+     <!-- PROJECT IMAGES -->
+<section id="project-images-section" class="mb-14">
+  <h2 class="text-2xl font-bold mb-6">
+    Project Images
+  </h2>
+
+  <div id="pd-gallery" class="grid md:grid-cols-3 gap-5"></div>
+</section>
+
+
+<!-- CLASH DETECTION -->
+<section id="clash-section" class="mb-14 hidden">
+  <h2 class="text-2xl font-bold mb-6">
+    Clash Detection & Coordination
+  </h2>
+
+  <p class="text-sm mb-6" style="color:var(--text-muted);">
+    Coordination and clash detection work completed using BIM coordination workflows.
+  </p>
+
+  <div id="pd-clashes" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+</section>
+
+
+<!-- MEP DRAWINGS / SHEETS -->
+<!-- PROJECT IMAGES -->
+
+
+<!-- DRAWING / SHEETS -->
+
+<!-- DRAWING / SHEETS -->
+
+<div id="sheets-section" class="mb-14 hidden">
+  <h2 class="text-2xl font-bold mb-6">Drawing / Sheet Showcase</h2>
+
+  <div id="pd-sheets" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+</div>
+
+  <div id="pd-sheets" class="grid md:grid-cols-2 gap-6"></div>
+</section>
+    </article>
+
+    <div class="flex justify-between mt-16 pt-10 border-t" style="border-color:var(--border-soft);">
+      <a id="pd-prev" href="#" class="btn-outline"><i class="fa-solid fa-arrow-left"></i> Previous Project</a>
+      <a id="pd-next" href="#" class="btn-outline">Next Project <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lb-close" id="lb-close"><i class="fa-solid fa-xmark"></i></div>
+  <div class="lb-nav lb-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></div>
+  <div class="lb-nav lb-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></div>
+  <div>
+    <img id="lb-img" src="" alt="">
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="js/firebase-init.js"></script>
+<script src="js/api.js"></script>
+<script src="js/site.js"></script>
+<script src="js/project-detail.js"></script>
+</body>
+</html>
