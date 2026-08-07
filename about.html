@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Mohit Soni</title>
+<link rel="icon" type="image/png" href="mohit-soni-profile.png">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<section class="section-pad pt-32">
+  <div class="container-wide">
+    <div class="text-center mb-14 reveal">
+      <p class="eyebrow mb-3">About Me</p>
+      <h1 class="text-4xl md:text-5xl font-bold">The Engineer Behind the Models</h1>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-14 items-center">
+      <div class="reveal">
+        <div class="card p-3">
+          <img id="about-photo" src="" alt="Portrait" class="rounded-xl w-full object-cover" style="aspect-ratio:4/5;">
+        </div>
+      </div>
+      <div class="reveal">
+        <h2 id="about-name" class="text-3xl font-bold mb-2">--</h2>
+        <p id="about-title" class="text-accent font-medium mb-6">--</p>
+        <p id="about-bio" class="text-sm leading-7 mb-8" style="color:var(--text-muted);">Loading...</p>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="border-soft rounded-lg p-4" id="about-email-wrap">
+            <p class="text-xs" style="color:var(--text-muted);"><i class="fa-solid fa-envelope text-accent mr-1"></i> Email</p>
+            <p id="about-email" class="text-sm mt-1 font-medium break-all">--</p>
+          </div>
+          <div class="border-soft rounded-lg p-4" id="about-phone-wrap">
+            <p class="text-xs" style="color:var(--text-muted);"><i class="fa-solid fa-phone text-accent mr-1"></i> Phone</p>
+            <p id="about-phone" class="text-sm mt-1 font-medium">--</p>
+          </div>
+          <div class="border-soft rounded-lg p-4" id="about-location-wrap">
+            <p class="text-xs" style="color:var(--text-muted);"><i class="fa-solid fa-location-dot text-accent mr-1"></i> Location</p>
+            <p id="about-location" class="text-sm mt-1 font-medium">--</p>
+          </div>
+          <div class="border-soft rounded-lg p-4">
+            <p class="text-xs" style="color:var(--text-muted);"><i class="fa-solid fa-briefcase text-accent mr-1"></i> Experience</p>
+            <p class="text-sm mt-1 font-medium">6+ Months</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="contact.html" class="btn-accent">Contact Me <i class="fa-solid fa-arrow-right"></i></a>
+          <a id="about-resume-link" href="#" target="_blank" class="btn-outline"><i class="fa-solid fa-download"></i> Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WORK WITH ME -->
+<section class="section-pad" style="background:var(--bg-darker);">
+  <div class="container-wide">
+    <div class="text-center mb-14 reveal">
+      <p class="eyebrow mb-3">Approach</p>
+      <h2 class="text-3xl md:text-4xl font-bold">Why Work With Me</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card p-7 reveal">
+        <i class="fa-solid fa-fan text-accent text-2xl mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">MEP Modeling</h3>
+        <p class="text-sm" style="color:var(--text-muted);">Accurate HVAC, Plumbing &amp; Fire Fighting BIM models built in Revit MEP for US and Middle East projects.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <i class="fa-solid fa-diagram-project text-accent text-2xl mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Clash Detection &amp; Coordination</h3>
+        <p class="text-sm" style="color:var(--text-muted);">Federated model review in Navisworks and cross-discipline coordination with Architecture &amp; Structure teams.</p>
+      </div>
+      <div class="card p-7 reveal">
+        <i class="fa-solid fa-handshake text-accent text-2xl mb-4"></i>
+        <h3 class="font-semibold text-lg mb-2">Clear Documentation</h3>
+        <p class="text-sm" style="color:var(--text-muted);">Shop drawings, construction documentation and coordinated deliverables every stakeholder can act on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="site-footer"></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="js/firebase-init.js"></script>
+<script src="js/api.js"></script>
+<script src="js/site.js"></script>
+<script>
+async function loadAboutProfile() {
+  try {
+    const profile = await API.getProfile();
+    if (!profile) return;
+    document.getElementById('about-photo').src = profile.profileImage || 'https://via.placeholder.com/600x750?text=Add+profileImage';
+    document.getElementById('about-name').textContent = profile.name || 'Mohit Soni';
+    document.getElementById('about-title').textContent = profile.title || 'MEP Senior Engineer | Revit MEP & BIM Coordination';
+    document.getElementById('about-bio').textContent = profile.about || profile.subtitle || '';
+    document.getElementById('about-email').textContent = profile.email || '--';
+    document.getElementById('about-phone').textContent = profile.phone || '--';
+    document.getElementById('about-location').textContent = profile.location || '--';
+    const resumeLink = document.getElementById('about-resume-link');
+    if (profile.resume) {
+      resumeLink.href = profile.resume;
+    } else {
+      resumeLink.href = 'resume.html';
+      resumeLink.removeAttribute('target');
+    }
+  } catch (e) { console.error(e); }
+}
+document.addEventListener('DOMContentLoaded', loadAboutProfile);
+</script>
+</body>
+</html>

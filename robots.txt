@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mohitsonibim.netlify.app/sitemap.xml

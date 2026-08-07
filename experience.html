@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience | Mohit Soni</title>
+<link rel="icon" type="image/png" href="mohit-soni-profile.png">
+<meta name="description" content="Work experience of Mohit Soni — MEP Senior Engineer specializing in Revit MEP, Navisworks and AutoCAD across HVAC, Plumbing, Fire Fighting and BIM coordination projects.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header id="site-header"></header>
+
+<section class="section-pad pt-32">
+  <div class="container-wide">
+    <div class="text-center mb-14 reveal">
+      <p class="eyebrow mb-3">Career Journey</p>
+      <h1 class="text-4xl md:text-5xl font-bold">Work Experience</h1>
+      <p class="max-w-xl mx-auto text-sm mt-4" style="color:var(--text-muted);">MEP engineering roles across Revit MEP, Navisworks and AutoCAD — HVAC, Plumbing, Fire Fighting and BIM coordination projects.</p>
+    </div>
+
+    <div id="experience-list" class="grid gap-6 max-w-3xl mx-auto">
+      <p class="text-sm text-center" style="color:var(--text-muted);">Loading...</p>
+    </div>
+
+    
+  </div>
+</section>
+
+<footer id="site-footer"></footer>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+<script src="js/firebase-init.js"></script>
+<script src="js/api.js"></script>
+<script src="js/site.js"></script>
+<script src="js/experience.js"></script>
+<script>
+(function () {
+  const box = document.getElementById('debug-output');
+  if (!box) return;
+  try {
+    const projectId = firebase.app().options.projectId;
+    let out = 'Connected to projectId: ' + projectId + '\n\nChecking all collections...\n';
+    box.textContent = out;
+    const collections = ['profile', 'projects', 'skills', 'experience', 'education', 'services'];
+    Promise.all(collections.map(name =>
+      firebase.firestore().collection(name).get()
+        .then(snap => `${name}: ${snap.size} document(s)`)
+        .catch(err => `${name}: ERROR — ${err.code || err.message}`)
+    )).then(results => {
+      box.textContent = out + '\n' + results.join('\n');
+    });
+  } catch (e) {
+    box.textContent = 'ERROR (script failed to run): ' + e.message;
+  }
+})();
+</script>
+</body>
+</html>
